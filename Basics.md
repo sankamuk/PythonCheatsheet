@@ -52,6 +52,49 @@ split(sep=None, maxsplit=-1) method of builtins.str instance
 - sankar -
 >>> print("-"+" sankar ".strip()+"-")
 -sankar-
+
+>>> string_text = "Just a string."    
+>>> string_text.isascii()
+True
+>>> string_text.isnumeric()
+False
+>>> string_text.find('str')
+7
+
+>>> string_text.encode('utf-8')
+b'Just a string.'
+>>> string_text.encode('utf-8').decode('utf-8')
+'Just a string.'
+```
+
+- OS Action
+
+```
+>>> from pathlib import Path
+
+>>> file_name = '/Users/apple/derby.log'
+>>> (Path(file_name)).is_file()
+True
+>>> (Path(file_name)).is_dir()
+False
+>>> file_name.isascii()
+True
+
+>>> new_file = Path('../../../../README.md')
+>>> new_file.is_file()
+True
+>>> new_file.absolute()
+PosixPath('/Users/apple/TEST/spark/spark-kubernetes-master/BUILD_BINARY/spark/spark2/bin/../../../../README.md')
+>>> new_file.is_absolute()
+False
+
+>>> file = Path('/Users/apple/TEST/file.txt')
+>>> file.read_text()
+'Line 1 - /my name\n#$%_(?:"  &^ - Ascii\n'
+>>> file.read_bytes()
+b'Line 1 - /my name\n#$%_(?:"  &^ - Ascii\n'
+>>> file.read_bytes().decode('utf-8')
+'Line 1 - /my name\n#$%_(?:"  &^ - Ascii\n'
 ```
 
 ###2. List
