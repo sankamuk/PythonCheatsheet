@@ -359,6 +359,7 @@ looping...
 
 > Note the use of special operator '+=' signifies + and then assign result.
 
+### Challenge
 
 - Example - Implementing a REPL
 
