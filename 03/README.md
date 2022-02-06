@@ -100,3 +100,160 @@ hello sankar
 
 ```
 
+> Note when we import a module the compiler only runs the definition (i.e. def's)
+
+***RECOMENDATION*** Always make modules import-able by functionality in its function and using `___main___` check. 
+Allowing it to be easily sharable and testable.
+
+
+- Example 04 - Final recommended module design
+
+```python
+PS C:\Users\HP\Desktop\work\PythonCheatsheet\03> cat mod_03.py
+import sys
+
+
+def func01(x):
+    print("hello {}".format(x))
+
+
+def main(arg):
+    func01(arg)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1])
+PS C:\Users\HP\Desktop\work\PythonCheatsheet\03> python mod_03.py 'sankar'
+hello sankar
+PS C:\Users\HP\Desktop\work\PythonCheatsheet\03> python
+Python 3.8.8 (default, Apr 13 2021, 15:08:03) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32
+
+Warning:
+This Python interpreter is in a conda environment, but the environment has
+not been activated.  Libraries may fail to load.  To activate this environment
+please see https://conda.io/activation
+
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from mod_03 import (main, func01)
+>>> func01('sankar')
+hello sankar
+>>> main('sankar')
+hello sankar
+>>>
+
+```
+
+## Documentation & Comments
+
+Document pattern can be different style, but below we list two most widely used format.
+
+- Example 05 - Documentation pattern
+
+```python
+PS C:\Users\HP\Desktop\work\PythonCheatsheet\03> cat mod_04.py
+"""
+Hello World Module
+
+Usage:
+    python mod_04.py <String To Greet>
+"""
+import sys
+
+
+def func01(x):
+    """Hello Method."""
+    print("hello {}".format(x))
+
+
+def main(arg):
+    """
+    Main function
+    :param arg: String
+    :return: Return from function call func01
+    """
+    func01(arg)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1])
+```
+
+> Using documentation for help
+
+```python
+>>> import mod_04
+>>> help(mod_04.main)
+Help on function main in module mod_04:
+
+main(arg)
+    Main function
+    :param arg: String
+    :return: Return from function call func01
+
+>>> help(mod_04.func01)
+Help on function func01 in module mod_04:
+
+func01(x)
+    Hello Method.
+
+>>>
+```
+
+> Module Documentation
+
+```python
+>>> import mod_04
+>>> help(mod_04)
+Help on module mod_04:
+
+NAME
+    mod_04 - Hello World Module
+
+DESCRIPTION
+    Usage:
+        python mod_04.py <String To Greet>
+
+FUNCTIONS
+    func01(x)
+        Hello Method.
+
+    main(arg)
+        Main function
+        :param arg: String
+        :return: Return from function call func01
+
+FILE
+    c:\users\hp\desktop\work\pythoncheatsheet\03\mod_04.py
+
+
+```
+
+- Example 06 - Commenting code
+
+```python
+PS C:\Users\HP\Desktop\work\PythonCheatsheet\03> cat mod_05.py
+
+...
+
+# Start
+if __name__ == '__main__':
+    main(sys.argv[1])  # Calling main function
+
+```
+
+- Example 07 - She-bang (Unix Only)
+
+```python
+PS C:\Users\HP\Desktop\work\PythonCheatsheet\03> cat mod_06.py
+#!/usr/bin/env python3
+"""
+Hello World Module
+
+Usage:
+    python mod_04.py <String To Greet>
+"""
+
+...
+```
+
+> The only purpose is to identify the target for your code
