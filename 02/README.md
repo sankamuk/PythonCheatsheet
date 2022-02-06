@@ -265,7 +265,7 @@ key - k2, value: some
 ```
 
 
-### Challenge
+# Challenge
 
 - Example 14 - Count words in text of few lines
 
