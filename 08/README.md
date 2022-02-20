@@ -95,5 +95,44 @@ Have a great day, DabliMeet you soon man
 > Note how we print multiline string
 
 
+## Duck Typing
 
+> When an object walk like a duck, swims like a duck and quack like a duck, call it a duck. - James Riley
+
+- Python considers 'duck typing' to consider object type compatibility
+- Using duck typing (for dynamic typing) instead of static typing is the basis of ***Polymorphism*** in Python
+
+
+## Inheritance
+
+- Example 4 - Code deduplication
+
+```python
+>>> class Animal:
+...   def walk(self):
+...     print(self._type_of_animal)
+...
+>>> class Human(Animal):
+...   def __init__(self):
+...     self._type_of_animal = 'Human'
+...   def intro(self):
+...     print("I am {}".format(self._type_of_animal))
+...
+>>> class Dog(Animal):
+...   def __init__(self):
+...     self._type_of_animal = 'Dog'
+...   def intro(self):
+...     print("Cannot introduce myself, i am a {}".format(self._type_of_animal))
+...
+>>> h = Human()
+>>> h.intro()
+I am Human
+>>> h.walk()
+Human
+>>> d = Dog()
+>>> d.intro()
+Cannot introduce myself, i am a Dog
+>>> d.walk()
+Dog
+```
 
