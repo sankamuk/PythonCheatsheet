@@ -7,6 +7,6 @@ setup(
     author="Sankar Mukherjee",
     author_email="my_email@something.com",
     license="Apache License 2.0",
-    py_modules=["fibonacci"],
-    keywords="fibonacci"
+    py_modules=["fibonacci_mod"],
+    keywords="fibonacci_mod"
 )
