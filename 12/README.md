@@ -1,4 +1,26 @@
 
+## Local function
+
+> Local functions are like any other object defined inside local scope
+
+```python
+>>> g = "global"
+>>> def outer(p="enclosing"):
+...   l = "local"
+...   def local():
+...     print("{}, {}, {}".format(g, p, l))
+...   local()
+...
+>>> outer()
+global, enclosing, local
+>>> outer.inner()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'function' object has no attribute 'inner'
+
+```
+
+
 ## Callable Instance
 
 ```commandline
