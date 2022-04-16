@@ -5,15 +5,29 @@
 My notes on the language Python. It should cover everything other than any third party package.
 
 Section 1 - Basics
-- [01](./01/README.md) Simple Types
-- [02](./02/README.md) Advance Type
-- [03](./03/README.md) Functions, Modules and Documentation
-- [04](./04/README.md) Arguments, Scope and Typing
-- [05](./05/README.md) Collection
-- [06](./06/README.md) Exception
-- [07](./07/README.md) Comprehensions and Generator
-- [08](./08/README.md) OOP
-- [09](./09/README.md) File Handling
-- [10](./10/README.md) Test, Debug and Distribution
+- [01](Basics/01/README.md) Simple Types
+- [02](Basics/02/README.md) Advance Type
+- [03](Basics/03/README.md) Functions, Modules and Documentation
+- [04](Basics/04/README.md) Arguments, Scope and Typing
+- [05](Basics/05/README.md) Collection
+- [06](Basics/06/README.md) Exception
+- [07](Basics/07/README.md) Comprehensions and Generator
+- [08](Basics/08/README.md) OOP
+- [09](Basics/09/README.md) File Handling
+- [10](Basics/10/README.md) Test, Debug and Distribution
 
 Section 2 - Advance
+- [11](Advance/11/README.md) Packages and Module
+- [12](Advance/12/README.md) Functions
+- [13](Advance/13/README.md) Decorators & Closures
+- [14](Advance/14/README.md) Property and Class Method
+- [15](Advance/15/README.md) String
+- [16](Advance/16/README.md) Number
+- [17](Advance/17/README.md) Iterables
+- [18](Advance/18/README.md) Inheritance
+- [19](Advance/19/README.md) Custom Collection
+- [20](Advance/20/README.md) Exception
+- [21](Advance/21/README.md) Context Manager
+- [22](Advance/22/README.md) Introspection
+
+Section 3 - Design
