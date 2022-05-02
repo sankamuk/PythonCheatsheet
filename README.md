@@ -31,3 +31,10 @@ Section 2 - Advance
 - [22](Advance/22/README.md) Introspection
 
 Section 3 - Design
+- [23](Design/23/README.md) Design Pattern Overview
+- [24](Design/24/README.md) Creation Patterns
+- [13](Design/25/README.md) Structural Patterns
+- [14](Design/26/README.md) Behavioural Patterns
+- [15](Design/27/README.md) Guidelines
+
+Section 4 - Testing

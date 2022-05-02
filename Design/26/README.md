@@ -1,5 +1,5 @@
 
-# Behavioural Pattern
+# Behavioural
 
 ## Observer Pattern
 
