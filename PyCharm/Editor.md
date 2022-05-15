@@ -1,58 +1,58 @@
 
 ## Code Editor Shotcuts
 
-*** control + / *** 
+***control + /*** 
 
 - Line comment
 
-*** control + W *** 
+***control + W*** 
 
 - Select whole word
 - + Select Line
 - ++ Increase scope of selection
 
-*** control + D ***
+***control + D***
 
 - Duplicate section
 
-*** control + shift + W ***
+***control + shift + W***
 
 - Opposit of above keep reducing scope of above sections
 
-*** shift + → ***
+***shift + →***
 
 - Keep selecting characor by charactor to right
 
-*** shift + ← ***
+***shift + ←***
 
 - Keep selecting characor by charactor to left
 
-*** shift + ↑ ***
+***shift + ↑***
 
 - Keep selection upword next line
 
-*** shift + ↓ ***
+***shift + ↓***
 
 - Keep selection downward next line
 
-*** control + alt + shift + j ***
+***control + alt + shift + j***
 
 - Select every occurrence of the word your cursor in currect file
 - Cursur will get parallaly active on all cursur and you can edit it now
 
-*** Alt + Multiple line selection ***
+***Alt + Multiple line selection***
 
 - Parallel edits
 
-*** control + shift + ↑ ***
+***control + shift + ↑***
 
 - Move selected line up
 
-*** control + shift + ↓ ***
+***control + shift + ↓***
 
 - Move selected line down
 
-*** shift + Tab ***
+***shift + Tab***
 
 - Reverse tab indentation
 
