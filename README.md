@@ -33,8 +33,15 @@ Section 2 - Advance
 Section 3 - Design
 - [23](Design/23/README.md) Design Pattern Overview
 - [24](Design/24/README.md) Creation Patterns
-- [13](Design/25/README.md) Structural Patterns
-- [14](Design/26/README.md) Behavioural Patterns
-- [15](Design/27/README.md) Guidelines
+- [25](Design/25/README.md) Structural Patterns
+- [26](Design/26/README.md) Behavioural Patterns
+- [27](Design/27/README.md) Guidelines
 
 Section 4 - Testing
+
+Section 5 - IDE PyCharm
+- [28](PyCharm/Editor.md) Code Editor Shortcuts
+- [29](PyCharm/Navigation.md) Project Navigation Shortcuts
+- [30](PyCharm/Miscellaneous.md) Miscellaneous Items
+
+
