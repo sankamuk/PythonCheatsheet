@@ -37,11 +37,9 @@ Section 3 - Design
 - [26](Design/26/README.md) Behavioural Patterns
 - [27](Design/27/README.md) Guidelines
 
-Section 4 - Testing
-
-Section 5 - IDE PyCharm
+Section 4 - IDE PyCharm
 - [28](PyCharm/Editor.md) Code Editor Shortcuts
 - [29](PyCharm/Navigation.md) Project Navigation Shortcuts
 - [30](PyCharm/Miscellaneous.md) Miscellaneous Items
 
-
+Section 5 - Testing
