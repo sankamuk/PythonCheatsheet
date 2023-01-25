@@ -43,3 +43,10 @@ Section 4 - IDE PyCharm
 - [30](PyCharm/Miscellaneous.md) Miscellaneous Items
 
 Section 5 - Testing
+
+
+Section 6 - Expert
+- [32](Expert/32/README.md) Profiling & Performance Tuning
+- [33](Expert/33/README.md) Improved Datastructures
+- [34](Expert/34/README.md) Parallelism & Concurrency
+- [35](Expert/35/README.md) Python Library
