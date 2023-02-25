@@ -50,3 +50,9 @@ Section 6 - Expert
 - [33](Expert/33/README.md) Improved Datastructures
 - [34](Expert/34/README.md) Parallelism & Concurrency
 - [35](Expert/35/README.md) Python Library
+
+Section 7 - Data Engineering
+- [36](Engineering/36/README.md) Web Scraping
+- []() Rest API
+
+
