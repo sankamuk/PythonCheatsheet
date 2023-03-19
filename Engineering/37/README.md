@@ -276,8 +276,7 @@ class SomeTable(Base):
 
 - `Table Relationship` is handled by relationship class.
 
-
-  - `One-to-many` Relationship: In SQLAlchemy, one-to-many relationships are defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
+`One-to-many` Relationship: In SQLAlchemy, one-to-many relationships are defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
 
 ```python
 class Customer(Base):
@@ -293,7 +292,7 @@ class Order(Base):
     customer = relationship("Customer", back_populates="orders")
 ```
 
-***Usage***
+  ***Usage***
 
 ```python
 customer = session.query(Customer).get(1)
@@ -305,7 +304,7 @@ customer = session.query(Customer).get(1)
 orders = customer.orders
 ```
 
-  - `Many-to-one` Relationship: Defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
+`Many-to-one` Relationship: Defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
 
 ```python
 class Customer(Base):
@@ -320,7 +319,7 @@ class Order(Base):
     customer = relationship("Customer")
 ```
 
-  - `Many-to-many` Relationship: Implemented using an intermediate table, also known as an association table, that maps the relationships between the two entities.
+`Many-to-many` Relationship: Implemented using an intermediate table, also known as an association table, that maps the relationships between the two entities.
 
 ```python
 class Student(Base):
