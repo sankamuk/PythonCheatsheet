@@ -342,7 +342,7 @@ class StudentCourse(Base):
 
 - `Insert record(s)` can be achieved by simply create table objects and asking session to persist them by adding to session and then committing the session.
 
-  - Single record can be added as below.
+Single record can be added as below.
   
 ```python
 ofc01 = sa.Offices(office_name="ACN", office_city="Kolkata", office_country="India")
@@ -353,7 +353,7 @@ sa.check_uncommited_object(session)
 sa.commit_session(session)
 ```
 
-  - Verify result.
+Verify result.
 
 ```commandline
 mysql> select * from offices;
@@ -382,7 +382,7 @@ sa.commit_session(session)
 
 > Note at any point if there is exception thrown, or you want to clear the staged work in session, you can perform a `rollback`.
 
-  - Verify results.
+Verify results.
 
 ```commandline
 mysql> select * from employees;
@@ -397,7 +397,7 @@ mysql> select * from employees;
 
 - `Bulk Load` csv (or any other format file) with Pandas.
 
-  - Check file to load.
+Check file to load.
 
 ```commandline
 PS C:\Users\HP\OneDrive\Desktop\work\PythonCheatsheet> cat .\Engineering\37\sample_offices.csv
@@ -407,7 +407,7 @@ office_id,office_name,office_city,office_country,office_strength
 4,IBM,NYC,USA,2500
 ```
 
-  - Open file in Python and read as Pandas dataframe.
+Open file in Python and read as Pandas dataframe.
 
 ```python
 import pandas as pd
@@ -421,7 +421,7 @@ off_df.head()
 2          4         IBM         NYC            USA             2500
 ```
 
-  - Persist in RDBMS.
+Persist in RDBMS.
 
 ```python
 import sys
@@ -448,7 +448,7 @@ conn_t.commit()
 
 > Note you cannot append to an existing table.
 
-  - Verify result.
+Verify result.
 
 ```commandline
 mysql> select * from offices_new;
@@ -464,7 +464,7 @@ mysql> select * from offices_new;
 
 - `Query` objects from RDBMS
 
-  - Executing standard query via SQLAlchemy
+Executing standard query via SQLAlchemy
 
 ```commandline
 mysql> select emp_name from employees where emp_name like '%i%';
@@ -477,7 +477,7 @@ mysql> select emp_name from employees where emp_name like '%i%';
 2 rows in set (0.01 sec)
 ```
 
-  - Use connection to execute query
+Use connection to execute query
 
 ```python
 from sqlalchemy import text
@@ -486,9 +486,9 @@ conn_t.execute(text(qry_str)).fetchall()
 [('Dabli',), ('Alif',)]
 ```
 
-  - Declarative ORM
+*Declarative ORM*
 
-    - Build session (connection between Python and RDBMS and entry point for query)
+Build session (connection between Python and RDBMS and entry point for query)
 
 ```python
 from sqlalchemy.orm import sessionmaker
@@ -497,7 +497,7 @@ ssn.configure(bind=eng_t)
 c_ssn = ssn()
 ``` 
 
-    - Query table data
+Query table data
 
 ```python
 c_ssn.query(sa.Employees).all()
@@ -520,7 +520,7 @@ c_ssn.query(sa.Employees.emp_name, sa.Employees.emp_office).first()
 
 > Note with `echo` parameter set during engine creation you can print all SQL executed by SQLAlchemy.
 
-  - Complex Query
+Complex Query
 
 ```python
 len(c_ssn.query(sa.Employees).filter_by(emp_office=2).all())
@@ -544,7 +544,7 @@ from sqlalchemy import or_
 > Note the difference between `filter` and `filter_by`, one allow column resolution. Also note the way logical `OR` is used.
 
 
-  - SQLAlchemy functions
+SQLAlchemy functions
 
 ```python
 from sqlalchemy import func
@@ -574,7 +574,7 @@ c_ssn.query(sa.Offices.office_name, cast((sa.Offices.office_strength - 100), Str
 > Note `scalar` allows you to extract a single value returned also how we can explicitly `cast` result.
 
 
-  - Joins
+Joins
 
 ```python
 for emp_off in c_ssn.query(sa.Employees, sa.Offices).join(sa.Offices, sa.Employees.emp_office == sa.Offices.office_id).all():
@@ -596,7 +596,7 @@ Jewel - ACN
 
 > Note above the former is called `Explicit` join and later `Implicit` join.
 
-  - Hierarchical Tables & Self Joins
+Hierarchical Tables & Self Joins
 
 > Define a Hierarchical table
 
@@ -627,7 +627,7 @@ session.query(sa.Managers.emp_name, Reporte.emp_name).filter(sa.Managers.emp_id 
 
 - `Update` object in RDBMS
 
-  - Before
+Before
 
 
 ```commandline
@@ -657,7 +657,7 @@ session.commit()
 ```
 
 
-  - Result
+Result
 
 
 ```commandline
@@ -688,7 +688,7 @@ session.commit()
 
 ```
 
-  - Result
+Result
 
 ```commandline
 mysql> select * from managers;
@@ -731,7 +731,7 @@ table_object.drop(bind=engine)
 session.commit()
 ```
 
-  - Result
+Result
   
 ```commandline
 mysql> show tables;
@@ -750,13 +750,13 @@ mysql> show tables;
 
 DB Migration helps in managing database for a project in a more structured and error free fashion. SQLAlchemy out of the box lacks support for migration for which we need a library called Alembic.
 
-  - Get [Alembic](https://alembic.sqlalchemy.org/en/latest/)
+Get [Alembic](https://alembic.sqlalchemy.org/en/latest/)
   
 ```commandline
 pip install -r requirements.txt
 ```
 
-  - Setup project
+Setup project
 
 ```commandline
 Hewlett Packard@HP-Elitedesk-PC MINGW64 ~/OneDrive/Desktop/work/PythonCheatsheet/Engineering/37/db-migartion (37)
@@ -796,7 +796,7 @@ drwxr-xr-x 1 Hewlett Packard 197121    0 Mar 19 13:37 versions/
 Hewlett Packard@HP-Elitedesk-PC MINGW64 ~/OneDrive/Desktop/work/PythonCheatsheet/Engineering/37/db-migartion (37)
 ```
 
-  - Update config for our project
+Update config for our project
 
 Basically we need to update two files, alembic.ini and db_migration/env.py.
 
@@ -817,7 +817,7 @@ from db_migration_models import Base
 target_metadata = Base.metadata
 ```
 
-  - Now you need to define your models. (Model entry script should be `db_migration_models` as we have imported above)
+Now you need to define your models. (Model entry script should be `db_migration_models` as we have imported above)
 
 ```python
 from sqlalchemy.ext.declarative import declarative_base
@@ -837,7 +837,7 @@ class Users(Base):
         return "<Managers: Id={}, Name={}>".format(self.emp_id, self.emp_name)
 ```
 
-  - Create our migration
+Create our migration
 
 ```commandline
 $ alembic.exe revision --autogenerate -m "Initial Setup"
@@ -870,7 +870,7 @@ total 4
 (37venv)
 ```
 
-  - Now we actually apply our migration to RDBMS
+Now we actually apply our migration to RDBMS
   
 ```commandline
 $ alembic.exe upgrade heads
@@ -902,7 +902,7 @@ mysql> desc users;
 2 rows in set (0.00 sec)
 ```
 
-  - Now lets update our table.
+Now lets update our table.
 
 > Below property added
 
