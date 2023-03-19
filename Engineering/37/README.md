@@ -292,7 +292,7 @@ class Order(Base):
     customer = relationship("Customer", back_populates="orders")
 ```
 
-  ***Usage***
+Usage
 
 ```python
 customer = session.query(Customer).get(1)
