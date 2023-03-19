@@ -3,7 +3,7 @@
 
 ***It is the SQL Toolkit for Python and also Python's ORM enabler***
 
-#### Features
+### Features
 
 - Supports dialect for SLQLite, Postgres, MySQL, Oracle, SQLServer, etc.
 - Allow you to interact with RDBMS with standard SQL.
@@ -18,7 +18,7 @@
 |Make use of RDMS specific optimization/syntax|It allow code to be generic and portable across RDBMS|
 
 
-#### RDBMS Instance
+### RDBMS Instance
 
 As this is all about RDBMS we need a running RDBMS, in our case we have MySQL.
 
@@ -75,7 +75,7 @@ Query OK, 0 rows affected (0.01 sec)
 
 ```
 
-#### Install SQLAlchemy
+### Install SQLAlchemy
 
 - You should be able to install SQLAlchemy using pip as below.
 
@@ -92,7 +92,7 @@ pip install mysql-connector-python
 > Note, this is a pure Python connector.
 
 
-#### Connection and REPL Test
+### Connection and REPL Test
 
 ```python
 import sqlalchemy as db
@@ -122,7 +122,7 @@ len(res.fetchall())
 - Note the result set is an `Cursor` and that's why above `fetchall` returned only 1
 
 
-#### Panda and SQLAlchemy
+### Panda and SQLAlchemy
 
 You can work with data in RDBMS using Pandas by below method.
 
@@ -185,7 +185,7 @@ min       1002.000000  1002.000000
 max       1702.000000  1621.000000
 ```
 
-#### Object Relational Mapper
+### Object Relational Mapper
 
 - Basically it allows `conversion of object between incompatible type` systems applicable in Object Oriented Programming.
 
@@ -202,7 +202,7 @@ max       1702.000000  1621.000000
 
 ***Declarative Mapping***
 
-- `Session` are the entry point for RDBMS to Python communication via SQLAlchemy. It also wraps transaction.
+#### `Session` are the entry point for RDBMS to Python communication via SQLAlchemy. It also wraps transaction.
 
 ```python
 from sqlalchemy.orm import sessionmaker
@@ -221,14 +221,14 @@ with session_maker() as session:
     # Do your work with session
 ```
 
-- `Declarative Base` is the base class for declarative class definition or the `Model`. Basically you need to define this and make all your Model (RDBMS Table) class definition inherit this.
+#### `Declarative Base` is the base class for declarative class definition or the `Model`. Basically you need to define this and make all your Model (RDBMS Table) class definition inherit this.
 
 ```python
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 ```
 
-- `Create Database` is a very RDBMS specific operation thus you need to use SQL approach and SQL dialect should be correct for specific RDBMS.
+#### `Create Database` is a very RDBMS specific operation thus you need to use SQL approach and SQL dialect should be correct for specific RDBMS.
 
 > Note for SQLLite RDBMS you so not need to run any SQL, connect string (sqllite3:///[DB FILE]) will open a new database ***file*** if already does not exist.
 
@@ -247,7 +247,7 @@ sa.create_db(conn_t, "tmp_db")
 > For creating database you can see the [code](./sqlalchemy_eg_01.py) the connection string does not contain database parameter.
 
 
-- `Create Tables` are basically means defining class with columns with type and constrain (primary and foreign keys) attributes. Once done you should ask sessions metadata object to create all staged metadata.
+#### `Create Tables` are basically means defining class with columns with type and constrain (primary and foreign keys) attributes. Once done you should ask sessions metadata object to create all staged metadata.
 
 
 ```python
@@ -260,7 +260,7 @@ conn.execute(db.text("show tables")).fetchall()
 #[('employees',), ('offices',)]
 ```
 
-- `Updatable` table definition
+#### `Updatable` table definition
 
 In case you want a table that need to be updated in the future, e.g. add, drop column, etc. Use below setting.
 
@@ -274,9 +274,9 @@ class SomeTable(Base):
 
 > Like extend_existing there are other options, check [LINK](https://martinheinz.dev/blog/28) for good read on this.
 
-- `Table Relationship` is handled by relationship class.
+#### `Table Relationship` is handled by relationship class.
 
-`One-to-many` Relationship: In SQLAlchemy, one-to-many relationships are defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
+- `One-to-many` Relationship: In SQLAlchemy, one-to-many relationships are defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
 
 ```python
 class Customer(Base):
@@ -304,7 +304,7 @@ customer = session.query(Customer).get(1)
 orders = customer.orders
 ```
 
-`Many-to-one` Relationship: Defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
+- `Many-to-one` Relationship: Defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
 
 ```python
 class Customer(Base):
@@ -319,7 +319,7 @@ class Order(Base):
     customer = relationship("Customer")
 ```
 
-`Many-to-many` Relationship: Implemented using an intermediate table, also known as an association table, that maps the relationships between the two entities.
+- `Many-to-many` Relationship: Implemented using an intermediate table, also known as an association table, that maps the relationships between the two entities.
 
 ```python
 class Student(Base):
@@ -340,9 +340,9 @@ class StudentCourse(Base):
     course_id = Column(Integer, ForeignKey('course.id'), primary_key=True)
 ```
 
-- `Insert record(s)` can be achieved by simply create table objects and asking session to persist them by adding to session and then committing the session.
+#### `Insert record(s)` can be achieved by simply create table objects and asking session to persist them by adding to session and then committing the session.
 
-Single record can be added as below.
+- Single record can be added as below.
   
 ```python
 ofc01 = sa.Offices(office_name="ACN", office_city="Kolkata", office_country="India")
@@ -366,7 +366,7 @@ mysql> select * from offices;
 
 ```
 
-  - Insert multiple records.
+- Insert multiple records.
 
 ```python
 session.rollback()
@@ -395,9 +395,9 @@ mysql> select * from employees;
 2 rows in set (0.00 sec)
 ```
 
-- `Bulk Load` csv (or any other format file) with Pandas.
+#### `Bulk Load` csv (or any other format file) with Pandas.
 
-Check file to load.
+- Check file to load.
 
 ```commandline
 PS C:\Users\HP\OneDrive\Desktop\work\PythonCheatsheet> cat .\Engineering\37\sample_offices.csv
@@ -407,7 +407,7 @@ office_id,office_name,office_city,office_country,office_strength
 4,IBM,NYC,USA,2500
 ```
 
-Open file in Python and read as Pandas dataframe.
+- Open file in Python and read as Pandas dataframe.
 
 ```python
 import pandas as pd
@@ -421,7 +421,7 @@ off_df.head()
 2          4         IBM         NYC            USA             2500
 ```
 
-Persist in RDBMS.
+- Persist in RDBMS.
 
 ```python
 import sys
@@ -462,9 +462,9 @@ mysql> select * from offices_new;
 3 rows in set (0.00 sec)
 ```
 
-- `Query` objects from RDBMS
+#### `Query` objects from RDBMS
 
-Executing standard query via SQLAlchemy
+- Executing standard query via SQLAlchemy
 
 ```commandline
 mysql> select emp_name from employees where emp_name like '%i%';
@@ -477,7 +477,7 @@ mysql> select emp_name from employees where emp_name like '%i%';
 2 rows in set (0.01 sec)
 ```
 
-Use connection to execute query
+- Use connection to execute query
 
 ```python
 from sqlalchemy import text
@@ -486,9 +486,9 @@ conn_t.execute(text(qry_str)).fetchall()
 [('Dabli',), ('Alif',)]
 ```
 
-*Declarative ORM*
+***Declarative ORM***
 
-Build session (connection between Python and RDBMS and entry point for query)
+- Build session (connection between Python and RDBMS and entry point for query)
 
 ```python
 from sqlalchemy.orm import sessionmaker
@@ -497,7 +497,7 @@ ssn.configure(bind=eng_t)
 c_ssn = ssn()
 ``` 
 
-Query table data
+- Query table data
 
 ```python
 c_ssn.query(sa.Employees).all()
@@ -520,7 +520,7 @@ c_ssn.query(sa.Employees.emp_name, sa.Employees.emp_office).first()
 
 > Note with `echo` parameter set during engine creation you can print all SQL executed by SQLAlchemy.
 
-Complex Query
+- Complex Query
 
 ```python
 len(c_ssn.query(sa.Employees).filter_by(emp_office=2).all())
@@ -544,7 +544,7 @@ from sqlalchemy import or_
 > Note the difference between `filter` and `filter_by`, one allow column resolution. Also note the way logical `OR` is used.
 
 
-SQLAlchemy functions
+- SQLAlchemy functions
 
 ```python
 from sqlalchemy import func
@@ -574,7 +574,7 @@ c_ssn.query(sa.Offices.office_name, cast((sa.Offices.office_strength - 100), Str
 > Note `scalar` allows you to extract a single value returned also how we can explicitly `cast` result.
 
 
-Joins
+- Joins
 
 ```python
 for emp_off in c_ssn.query(sa.Employees, sa.Offices).join(sa.Offices, sa.Employees.emp_office == sa.Offices.office_id).all():
@@ -596,7 +596,7 @@ Jewel - ACN
 
 > Note above the former is called `Explicit` join and later `Implicit` join.
 
-Hierarchical Tables & Self Joins
+- Hierarchical Tables & Self Joins
 
 > Define a Hierarchical table
 
@@ -625,7 +625,7 @@ session.query(sa.Managers.emp_name, Reporte.emp_name).filter(sa.Managers.emp_id 
 > Note above the way to perform `Projection` in SQLAlchemy, by only having fields required in Query dataset.
 
 
-- `Update` object in RDBMS
+#### `Update` object in RDBMS
 
 Before
 
@@ -673,7 +673,7 @@ mysql> select * from managers;
 4 rows in set (0.00 sec)
 ```
 
-- `Delete` record in RDBMS
+#### `Delete` record in RDBMS
 
 ```python
 unused_manager = session.query(sa.Managers).filter(sa.Managers.emp_id == 2).first()
@@ -702,7 +702,7 @@ mysql> select * from managers;
 
 ```
 
-- `Metadata Catalog` access
+#### `Metadata Catalog` access
 
 ```python
 metastore = db.MetaData()
@@ -723,7 +723,7 @@ table_object.columns.values()
 
 ```
 
-- `Drop` table
+#### `Drop` table
 
 ```python
 table_object = metastore.tables['offices_new']
@@ -746,17 +746,17 @@ mysql> show tables;
 ```
 
 
-- `Migration` with Alembic
+#### `Migration` with Alembic
 
 DB Migration helps in managing database for a project in a more structured and error free fashion. SQLAlchemy out of the box lacks support for migration for which we need a library called Alembic.
 
-Get [Alembic](https://alembic.sqlalchemy.org/en/latest/)
+- Get [Alembic](https://alembic.sqlalchemy.org/en/latest/)
   
 ```commandline
 pip install -r requirements.txt
 ```
 
-Setup project
+- Setup project
 
 ```commandline
 Hewlett Packard@HP-Elitedesk-PC MINGW64 ~/OneDrive/Desktop/work/PythonCheatsheet/Engineering/37/db-migartion (37)
@@ -796,7 +796,7 @@ drwxr-xr-x 1 Hewlett Packard 197121    0 Mar 19 13:37 versions/
 Hewlett Packard@HP-Elitedesk-PC MINGW64 ~/OneDrive/Desktop/work/PythonCheatsheet/Engineering/37/db-migartion (37)
 ```
 
-Update config for our project
+- Update config for our project
 
 Basically we need to update two files, alembic.ini and db_migration/env.py.
 
@@ -817,7 +817,7 @@ from db_migration_models import Base
 target_metadata = Base.metadata
 ```
 
-Now you need to define your models. (Model entry script should be `db_migration_models` as we have imported above)
+- Now you need to define your models. (Model entry script should be `db_migration_models` as we have imported above)
 
 ```python
 from sqlalchemy.ext.declarative import declarative_base
@@ -837,7 +837,7 @@ class Users(Base):
         return "<Managers: Id={}, Name={}>".format(self.emp_id, self.emp_name)
 ```
 
-Create our migration
+- Create our migration
 
 ```commandline
 $ alembic.exe revision --autogenerate -m "Initial Setup"
@@ -870,7 +870,7 @@ total 4
 (37venv)
 ```
 
-Now we actually apply our migration to RDBMS
+- Now we actually apply our migration to RDBMS
   
 ```commandline
 $ alembic.exe upgrade heads
@@ -902,7 +902,7 @@ mysql> desc users;
 2 rows in set (0.00 sec)
 ```
 
-Now lets update our table.
+- Now lets update our table.
 
 > Below property added
 
