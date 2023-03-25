@@ -276,6 +276,18 @@ class SomeTable(Base):
 
 #### `Table Relationship` is handled by relationship class.
 
+***Supported Relationships***
+
+
+|Relationship|Is Supported|Detail/Implementation|
+|---|---|---|
+|Many-to-one|Yes|Many side define foreign key and relationship|
+|One-to-many|Yes|One side define relationship and define foreign key on many side|
+|One-to-one|Yes|Same as Many-to-one or One-to-many just use `useList=False` in relationship definition|
+|Many-to-many|Yes|Needs associated table|
+
+
+
 - `One-to-many` Relationship: In SQLAlchemy, one-to-many relationships are defined using a Foreign Key on the many side of the relationship, which points to the primary key of the one side.
 
 ```python
@@ -746,7 +758,7 @@ mysql> show tables;
 ```
 
 
-#### `Migration` with Alembic
+### Migration with Alembic
 
 DB Migration helps in managing database for a project in a more structured and error free fashion. SQLAlchemy out of the box lacks support for migration for which we need a library called Alembic.
 
