@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <h1>User List:</h1>
+    <br/>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td><a href="{{ url_for('index_f', idx=loop.index0) }}">Detail</a></td>
+                <td><a href="{{ url_for('drop_user', index=loop.index0) }}">Drop</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/>
+</body>
+</html>

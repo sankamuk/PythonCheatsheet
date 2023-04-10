@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <h1>User Detail:</h1>
+    <br/>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.city }}</td>
+        </tr>
+    </table>
+    <br/>
+    <a href="/user/{{ current_index - 1 }}">Previous User</a>
+    <a href="{{ url_for('index_f', idx=current_index + 1) }}">Next User</a>
+</body>
+</html>

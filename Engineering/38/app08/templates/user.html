@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <h1>User Detail:</h1>
+    <br/>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.city }}</td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    {% if current_index <= 0 %}
+        <a href="/user/{{ max_index }}">Previous</a>
+    {% else %}
+        <a href="/user/{{ current_index - 1 }}">Previous</a>
+    {% endif %}
+
+    {% if current_index >= max_index %}
+        <a href="{{ url_for('index_f', idx=0) }}">Next</a>
+    {% else %}
+        <a href="{{ url_for('index_f', idx=current_index + 1) }}">Next</a>
+    {% endif %}
+</body>
+</html>
